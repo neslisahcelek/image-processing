@@ -1,0 +1,23 @@
+Soru: Bir siyah-beyaz görüntünün piksel değerleri 0 ile 255 arasında değişmektedir. 
+Bu görüntünün piksel değerlerini 0 ile 1 aralığında ölçeklendirin ve 
+kontrast stretching işlemi için en düşük %5 ve en yüksek %95 piksel değerlerini kullanarak yeniden hesaplayın.
+
+Çözüm:
+Görüntünün piksel değerlerini 0 ile 1 aralığında ölçeklendirmek için, 
+her piksel değerini aşağıdaki formülü kullanarak yeniden hesaplamalıyız:
+
+y = x / 255
+Burada, x piksel değeri ve y normalizasyon sonrası piksel değeri. 
+
+En düşük %5 ve en yüksek %95 piksel değerlerini bulmak için, önce görüntünün piksel değerlerini sıralamamız gerekiyor. 
+Ardından, en düşük %5 piksel değerini bulmak için piksel değerleri listesindeki %5. yüzdelik dilime karşılık gelen değeri buluyoruz 
+ve bu değeri minimum piksel değeri olarak belirliyoruz. 
+en yüksek %95 piksel değerini bulmak için piksel değerleri listesindeki %95. yüzdelik dilime karşılık gelen değeri buluyoruz 
+ve bu değeri maksimum piksel değeri olarak belirliyoruz.
+
+Normalizasyon sonrası piksel değerleri ile kontrast stretching uygulamak için, minimum ve maksimum piksel değerleri arasındaki aralığı genişletmemiz gerekiyor. 
+Bu, her piksel değerini aşağıdaki formülü kullanarak yeniden hesaplayarak yapılabilir:
+
+y' = (y - min) / (max - min)
+Burada, y normalizasyon sonrası piksel değeri, y' kontrast stretching sonrası piksel değeri, 
+min en düşük %5 piksel değeri ve max en yüksek %95 piksel değeri. Bu formülü kullanarak, her piksel değerini yeniden hesaplayabiliriz.
